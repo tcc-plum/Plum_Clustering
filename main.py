@@ -1,16 +1,5 @@
-from clusterizacao import Clusterizacao
-import time
-import os
+from watcher import Watcher
 
-pasta = '../Plum_Research/frames'
-clusterizar = Clusterizacao()
+observer = Watcher()
 
-while True:
-    arquivos = os.listdir(pasta)
-    clusterizar.cluster(pasta)
-    for arquivo in arquivos:
-        foto = pasta + '/' + arquivo
-        if os.path.isfile(foto):
-            print('[INFO] Removendo o arquivo: ' + foto)
-            os.remove(foto)
-    time.sleep(5)
+observer.run()
